@@ -7,6 +7,7 @@
         
         #main {
             background-image: url('./images/background.jpg');
+            background-repeat: no-repeat;
             position: absolute;
             overflow: hidden;
         }
@@ -27,8 +28,16 @@
         
         #blackAndGreenRightBug {
             position: absolute;
-            left: 800px;
+            left: 850px;
+            top: 300px;
+            width: 300px;
+            height: 200px;
+            width: 200px;
+            margin: 500;
+            transition-property: left;
+            transition-duration: 1s;
             overflow: hidden;
+            
         }
         
         .scoreText {
@@ -39,6 +48,22 @@
             letter-spacing: 0.20em;
             position: absolute;
             overflow: hidden;
+        }
+        
+        /* Alien move transition classes */
+        .move {
+          transition: margin-top 4s;
+          margin-top: 250px;
+        }
+        .slide-LeftRight {
+          transition: margin-left 4s;
+          transition-delay: 1s;
+          margin-left: 0px;
+        }
+        .slideUpDown {
+          transition: margin-top 4s;
+          transition-delay: 1s;
+          margin-left: 0px;
         }
 /*
         .image {
@@ -58,24 +83,19 @@
         
         <div id="blackAndGreenRightBug" class="outer reset-bg">
 <!--        <div id="blueVanPopup" class="inner dissolver">-->
-        <img id="rightTreeBug" class="plain" style="width:50px;" alt="2014 Susanne C. Dougherty" src="./images/bug4.png" />
-        <p> {"zone":"1","height":"170","width":"50","marginLeft":"0","marginTop":"300","position":"0","delay":"2200","movement":"u","pointsHit":"60","pointsMiss":"-6"} </p>
+        <img id="rightTreeBug" class="plain" alt="2014 Susanne C. Dougherty" src="./images/bug4.png" />
+        <p>  </p>
 <!--        </div>-->
         </div>
     </div>
     <script>
         var settings = {
-            //sound:            true,
-            //volume:           100,
-            //soundStorage:     null,
-            //explosionVolume:  0.7,
             shotSize:         10,
-            maxBugs:        3,
-            gameloopSpeed:    2200,         // General speed of game loop repeat; should about the same as the longest "putback" delay
-            //showOuterDivs:    "hidden"
+            maxBugs:           3,
+            gameloopSpeed:    2200,         // General speed of game loop repeat; 
         };
 //        function startGame() {
-//            
+//            document.getElementById("blackAndGreenRightBug").style.visibility = "visible";
 //        }
     </script>
 </body>
