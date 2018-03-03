@@ -1,10 +1,60 @@
 <!DOCTYPE html>
 <html>
     
-<head><title>Shooting bugs!</title></head>
+<head>
+    <title>Shooting bugs!</title>
+    <style>
+        
+        #main {
+            background-image: url('./images/background.jpg');
+            position: absolute;
+            overflow: hidden;
+        }
+        
+        #scores {
+            position: absolute;
+            left: 700px;
+            top: 20px;
+            width: 300px;
+            height: 200px;
+            width: 200px;
+            padding: 10px;
+            border: 2px solid gray;
+            margin: 500;
+            background-color: aqua;
+            opacity: 0.5;
+        }
+        
+        .scoreText {
+            font-family: Verdana, Geneva, monospace;
+            font-weight: 550;
+            font-size: 20px;
+            color: black;
+            letter-spacing: 0.20em;
+            position: absolute;
+            overflow: hidden;
+        }
+/*
+        .image {
+            
+        }
+*/
+    
+    </style>
+</head>
     
 <body>
-    
+    <div id = "main">
+        <img id="mainBackground" class="image" alt="UCSC" src="./images/background.jpg" />
+        <div id="scores" class="scoreText"> 
+            <p class="scoreText">Scores:</p>
+        </div>
+    </div>
+    <script>
+//        function startGame() {
+//            
+//        }
+    </script>
 </body>
 
 
