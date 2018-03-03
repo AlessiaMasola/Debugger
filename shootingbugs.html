@@ -25,6 +25,12 @@
             opacity: 0.5;
         }
         
+        #blackAndGreenRightBug {
+            position: absolute;
+            left: 800px;
+            overflow: hidden;
+        }
+        
         .scoreText {
             font-family: Verdana, Geneva, monospace;
             font-weight: 550;
@@ -49,8 +55,25 @@
         <div id="scores" class="scoreText"> 
             <p class="scoreText">Scores:</p>
         </div>
+        
+        <div id="blackAndGreenRightBug" class="outer reset-bg">
+<!--        <div id="blueVanPopup" class="inner dissolver">-->
+        <img id="rightTreeBug" class="plain" style="width:50px;" alt="2014 Susanne C. Dougherty" src="./images/bug4.png" />
+        <p> {"zone":"1","height":"170","width":"50","marginLeft":"0","marginTop":"300","position":"0","delay":"2200","movement":"u","pointsHit":"60","pointsMiss":"-6"} </p>
+<!--        </div>-->
+        </div>
     </div>
     <script>
+        var settings = {
+            //sound:            true,
+            //volume:           100,
+            //soundStorage:     null,
+            //explosionVolume:  0.7,
+            shotSize:         10,
+            maxBugs:        3,
+            gameloopSpeed:    2200,         // General speed of game loop repeat; should about the same as the longest "putback" delay
+            //showOuterDivs:    "hidden"
+        };
 //        function startGame() {
 //            
 //        }
