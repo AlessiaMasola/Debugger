@@ -11,6 +11,8 @@
             background-repeat: no-repeat;
             position: absolute;
             overflow: hidden;
+            border-radius: 25px;
+            border: 2px solid red;
         }
         
         #scores {
@@ -25,6 +27,7 @@
             margin: 500;
             background-color: aqua;
             opacity: 0.5;
+            border-radius: 25px;
         }
         
         .rightTreeBug {
@@ -58,31 +61,16 @@
             margin: 500;
         }
         
-        .scoreText {
+        .info {
             font-family: Verdana, Geneva, monospace;
             font-weight: 550;
             font-size: 20px;
+            top: px;
             color: black;
-            letter-spacing: 0.20em;
-            position: absolute;
+/*            position: absolute;*/
             overflow: hidden;
         }
         
-        /* Alien move transition classes */
-        .move {
-          transition: margin-top 4s;
-          margin-top: 250px;
-        }
-        .slide-LeftRight {
-          transition: margin-left 4s;
-          transition-delay: 1s;
-          margin-left: 0px;
-        }
-        .slideUpDown {
-          transition: margin-top 4s;
-          transition-delay: 1s;
-          margin-left: 0px;
-        }
         
         body, css {
             cursor: url(./assets/crosshair.png), auto;	
@@ -97,8 +85,10 @@
 <body>
     <div id = "main">
         <img id="mainBackground" class="image" alt="UCSC, 2014 Susanne C. Dougherty" src="./assets/background.png"/>
-        <div id="scores" class="scoreText"> 
-            <p class="scoreText">Scores:</p>
+        <div id="scores" class="info"> 
+            <p id="scoreTotal" class="info" style="top:40px;">Total Score: 0</p>
+            <p id="scoreHits" class="info" style="top:90px;">Hits: 0</p>
+            <p id="scoreMisses" class="info" style="top:140px;">Misses: 0</p>
         </div>
         
 <!--        <div id="animate">-->
@@ -136,6 +126,13 @@
               // change button text
             }
         }  
+        
+        function updateScore(val) {
+            score.now += parseInt(val);
+            document.getElementById("scoreTotal").innerHTML = "Total:" + score.now;
+            document.getElementById("scoreHits").innerHTML = "Hits:" + score.hits;
+            document.getElementById("scoreMisses").innerHTML = "Misses:" + score.misses;
+        }
 //        $(document).ready(function(e) {
 //            width = "+=" + 100;
 //            $("#animate").animate({
