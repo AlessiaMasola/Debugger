@@ -3,7 +3,7 @@
     
 <head>
     <title>Let's debug with the DEBUGGER!</title>
-    <script src="jquery-3.3.1.min.js"></script>
+    
     <style>
         
         #main {
@@ -38,12 +38,26 @@
             position: absolute;
             left: 235px;
             top: 240px;
-/*            margin: 500;*/
-/*            overflow: hidden;*/
             display: block;
             width:85px;
             height:80px;
+/*
+            -webkit- animation: movespider 5s; 
+            animation: movespider 5s;
+*/
         }
+        
+/*
+        @-webkit-keyframes movespider {
+            0% {
+                top: 240px;
+            }
+            30% {
+                top: 270px;
+            }
+        }
+*/
+
         
         #bugButton {
             display: none;
@@ -57,20 +71,45 @@
             height: 195px;
             width: 200px;
             margin: 500;
+/*
+            -webkit- animation: moverightbug 4s; 
+            animation: moverightbug 4s;
+*/
         }
-    #leftTreeBug{
-        position: absolute;
-        left: 140px;
-        top: 300px;
-        width: 300px;
-        height: 200px;
-        width: 300px;
-        margin: 500;
-        /*transition-property: left;
-         transition-duration: 1s;*/
-        overflow: hidden;
-        display: block;
-    }
+        
+/*
+        @-webkit-keyframes moverightbug {
+            0% {
+                left: 850px;
+            }
+            50% {
+                left: 500px;
+            }
+*/
+            
+        #leftTreeBug{
+            position: absolute;
+            left: 140px;
+            top: 300px;
+            width: 300px;
+            height: 200px;
+            width: 300px;
+            margin: 500;
+            overflow: hidden;
+            display: block;
+            -webkit- animation: moveleftbug 4s; 
+            animation: moveleftbug 4s;
+        }
+        
+        @-webkit-keyframes moveleftbug {
+            0% {
+                left: 140px;
+            }
+            30% {
+                left: 300px;
+            }
+        }
+        
         #dirtBug{
             position: absolute;
             left: 320px;
@@ -87,23 +126,24 @@
             font-size: 20px;
             top: px;
             color: black;
-/*            position: absolute;*/
+            position: absolute;
             overflow: hidden;
         }
         
-        
-        body, css {
-            cursor: url(./assets/crosshair.png), auto;  
+        .tree4 {
+            position: absolute;
         }
         
+        body, css {
+            cursor: url(./assets/crosshair.png) 25 20, auto;  
+        }
         
-    
     </style>
 </head>
     
 <body>
     <div id = "main">
-        <img id="overlay" class="image" alt="Dirt"  src="./assets/dirt.png" />
+            <img id="overlay" class="image" alt="Dirt"  src="./assets/dirt.png" />
 
             <img id="overlay" class="image" alt="Fence 1"  src="./assets/fence1.png" />
 
@@ -116,15 +156,19 @@
             <img id="overlay" class="image" alt="Tree 2"  src="./assets/tree2.png" />
  
             <img id="overlay" class="image"  alt="Tree 3"  src="./assets/tree3.png" />
-
-            <img id="overlay" class="image" alt="Tree 4"  src="./assets/tree4.png" />
-
+        
+            <div id= "blackAndGreenLeftBug" class="outer reset-bg" onclick="toggleBug('leftTreeBug')" id="bugButton">
+                <img id="leftTreeBug" class="plain" alt="Left Bug" style="width:80px;height:80px" src="./assets/bug1.gif"/>
+                <img id="overlay" class="tree4" alt="Tree 4"  src="./assets/tree4.png" />
+            </div>
+            
+            
             <img id="overlay" class="image" alt="Tree 5"  src="./assets/tree5.png" />
 
             <img id="overlay" class="image" alt="Tree 6"  src="./assets/tree6.png" />
  
             <img id="overlay" class="image" alt="Tree 7"  src="./assets/tree7.png" />
- 
+            
             <img id="overlay" class="image" alt="Tree 8"  src="./assets/tree8.png" />
 
             
@@ -139,10 +183,7 @@
         <div id="blackAndGreenRightBug" class="outer reset-bg" onclick="toggleBug('rightTreeBug')" id="bugButton">
             <img id="rightTreeBug" class="plain" alt="black and green bug" src="./assets/bug4.png"/>
         </div>
-
-        <div id= "blackAndGreenLeftBug" class="outer reset-bg" onclick="toggleBug('leftTreeBug')" id="bugButton">
-                <img id="leftTreeBug" class="plain" alt="Left Bug" style="width:80px;height:80px" src="./assets/bug1.gif"/>
-        </div>
+        
         <div id="spider" class="outer reset-bg" onclick="toggleBug('spider')" id="bugButton">
             <img id="spider" class="plain" alt="a spider" src="./assets/bug2.png"/>
         </div>
@@ -150,11 +191,16 @@
         <div id="dirtBug" class="outer reset-bg" onclick="toggleBug('dirtBug')" id="bugButton">
             <img id="dirtBug" class="plain" alt="black dirt bug" style="width:80px; height:86px" src="./assets/bug3.png"/>
         </div>
+        
+        
     
     <script>
-//        function startGame() {
-//            document.getElementById("blackAndGreenRightBug").style.visibility = "visible";
-//        }
+/*
+        function startGame() {
+            document.getElementById("blackAndGreenRightBug").style.visibility = "visible";
+        }
+*/
+        
         
         function toggleBug(bug) { 
             // get the bug
@@ -167,28 +213,19 @@
             if (displaySetting == 'block') { 
               // bug is visible. hide it
               myBug.style.display = 'none';
+            } else { 
+                    // bug is hidden. show it 
+                    myBug.style.display = 'block';
+                    // change button text
             }
-            else { 
-              // bug is hidden. show it 
-              myBug.style.display = 'block';
-              // change button text
-            }
-        }  
-        
+        }
         function updateScore(val) {
             score.now += parseInt(val);
             document.getElementById("scoreTotal").innerHTML = "Total:" + score.now;
             document.getElementById("scoreHits").innerHTML = "Hits:" + score.hits;
             document.getElementById("scoreMisses").innerHTML = "Misses:" + score.misses;
         }
-//        $(document).ready(function(e) {
-//            width = "+=" + 100;
-//            $("#animate").animate({
-//            left: width
-//            }, 3000, function() {
-//            // Animation complete.
-//            });
-//        });
+
     </script>
 </body>
 
