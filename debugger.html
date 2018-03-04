@@ -29,10 +29,34 @@
             opacity: 0.5;
             border-radius: 25px;
         }
-
         #overlay{
             position: absolute;
             overflow: hidden;
+        }
+        
+        #spider {
+            position: absolute;
+            left: 235px;
+            top: 240px;
+/*            margin: 500;*/
+/*            overflow: hidden;*/
+            display: block;
+            width:85px;
+            height:80px;
+        }
+        
+        #bugButton {
+            display: none;
+        }
+        
+        #rightTreeBug { 
+            position: absolute; 
+            left: 850px;
+            top: 300px;
+            width: 250px;
+            height: 195px;
+            width: 200px;
+            margin: 500;
         }
 
         #leftTreeBug{
@@ -48,28 +72,21 @@
             overflow: hidden;
             display: block;
         }
-        
-        #bugButton {
-            display: none;
-        }
-        
-        #rightTreeBug { 
+
+        #dirtBug{
             position: absolute; 
-            left: 850px;
-            top: 300px;
+            left: 320px;
+            top: 260px;
             width: 300px;
             height: 200px;
             width: 200px;
             margin: 500;
-            overflow: hidden;
-            display: block;
         }
         
         .info {
             font-family: Verdana, Geneva, monospace;
             font-weight: 550;
             font-size: 20px;
-            opacity: 1;
             top: px;
             color: black;
 /*            position: absolute;*/
@@ -78,11 +95,10 @@
         
         
         body, css {
-            cursor: url(./assets/crosshair.png), auto;	
+            cursor: url(./assets/crosshair.png), auto;  
         }
         
         
-
     
     </style>
 </head>
@@ -113,6 +129,8 @@
  
             <img id="overlay" class="image" alt="Tree 8"  src="./assets/tree8.png" />
 
+            
+
         <img id="mainBackground" class="image" alt="UCSC, 2014 Susanne C. Dougherty" src="./assets/background.png"/>
         <div id="scores" class="info"> 
             <p id="scoreTotal" class="info" style="top:40px;">Total Score: 0</p>
@@ -120,18 +138,20 @@
             <p id="scoreMisses" class="info" style="top:140px;">Misses: 0</p>
         </div>
         
-<!--        <div id="animate">-->
-            <div id="blackAndGreenRightBug" class="outer reset-bg" onclick="toggleBug('rightTreeBug')" id="bugButton">
-                <img id="rightTreeBug" class="plain" alt="black and green bug" src="./assets/bug4.png"/>
-            </div>
+        <div id="blackAndGreenRightBug" class="outer reset-bg" onclick="toggleBug('rightTreeBug')" id="bugButton">
+            <img id="rightTreeBug" class="plain" alt="black and green bug" src="./assets/bug4.png"/>
+        </div>
 
-            <div id= "blackAndGreenLeftBug" class="outer reset-bg" onclick="toggleBug('leftTreeBug')" id="bugButton">
+        <div id= "blackAndGreenLeftBug" class="outer reset-bg" onclick="toggleBug('leftTreeBug')" id="bugButton">
                 <img id="leftTreeBug" class="plain" alt="Left Bug" style="width:80px;height:80px" src="./assets/bug1.gif"/>
-            </div>
-<!--        </div> -->
+        </div>
+        <div id="spider" class="outer reset-bg" onclick="toggleBug('spider')" id="bugButton">
+            <img id="spider" class="plain" alt="a spider" src="./assets/bug2.png"/>
+        </div>
 
-
-    </div>
+        <div id="dirtBug" class="outer reset-bg" onclick="toggleBug('dirtBug')" id="bugButton">
+            <img id="dirtBug" class="plain" alt="black dirt bug" style="width:80px; height:86px" src="./assets/bug3.png"/>
+        </div>
     
     <script>
 //        function startGame() {
@@ -141,24 +161,18 @@
         function toggleBug(bug) { 
             // get the bug
             var myBug = document.getElementById(bug);
-            //var leftBug = document.getElementById('leftTreeBug');
-
             // get the current value of the bug's display property 
             var displaySetting = myBug.style.display;
-
             // also get the bug button, so we can change what it says 
             var bugButton = document.getElementById('bugButton');
-
             // now toggle the clock and the button text, depending on current state
             if (displaySetting == 'block') { 
               // bug is visible. hide it
               myBug.style.display = 'none';
-              //leftBug.style.display = 'none';
             }
             else { 
               // bug is hidden. show it 
               myBug.style.display = 'block';
-              //leftBug.style.display = 'block';
               // change button text
             }
         }  
