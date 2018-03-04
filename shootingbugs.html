@@ -2,7 +2,7 @@
 <html>
     
 <head>
-    <title>Shooting bugs!</title>
+    <title>Let's debug with the DEBUGGER!</title>
     <style>
         
         #main {
@@ -26,7 +26,7 @@
             opacity: 0.5;
         }
         
-        #blackAndGreenRightBug {
+        #rightTreeBug {
             position: absolute;
             left: 850px;
             top: 300px;
@@ -37,6 +37,7 @@
             transition-property: left;
             transition-duration: 1s;
             overflow: hidden;
+            display: block;
             
         }
         
@@ -69,36 +70,51 @@
         body, css {
             cursor: url(./assets/crosshair.png), auto;	
         }
-/*
-*/
-/*
-        .image {
-            
-        }
-*/
+        
+
     
     </style>
 </head>
     
 <body>
     <div id = "main">
-        <img id="mainBackground" class="image" alt="UCSC" src="./assets/background.png" />
+        <img id="mainBackground" class="image" alt="UCSC, 2014 Susanne C. Dougherty" src="./assets/background.png"/>
         <div id="scores" class="scoreText"> 
             <p class="scoreText">Scores:</p>
         </div>
         
-        <div id="blackAndGreenRightBug" class="outer reset-bg">
-<!--        <div id="blueVanPopup" class="inner dissolver">-->
-        <img id="rightTreeBug" class="plain" alt="2014 Susanne C. Dougherty" src="./assets/bug4.png" />
-        <p>  </p>
-<!--        </div>-->
-        </div>
+        <button onclick="toggleBug()" id="bugButton"><div id="blackAndGreenRightBug" class="outer reset-bg">
+            <img id="rightTreeBug" class="plain" alt="black and green bug" src="./assets/bug4.png"/>
+            </div> </button>
 
     </div>
+    
     <script>
 //        function startGame() {
 //            document.getElementById("blackAndGreenRightBug").style.visibility = "visible";
 //        }
+        
+        function toggleBug() { 
+            // get the bug
+            var myBug = document.getElementById('rightTreeBug');
+
+            // get the current value of the bug's display property 
+            var displaySetting = myBug.style.display;
+
+            // also get the bug button, so we can change what it says 
+            var bugButton = document.getElementById('bugButton');
+
+            // now toggle the clock and the button text, depending on current state
+            if (displaySetting == 'block') { 
+              // bug is visible. hide it
+              myBug.style.display = 'none';
+            }
+            else { 
+              // bug is hidden. show it 
+              myBug.style.display = 'block';
+              // change button text
+            }
+        }  
     </script>
 </body>
 
