@@ -35,21 +35,15 @@
             overflow: hidden;
         }
         
-        .rightTreeBug {
+        #spider {
             position: absolute;
-            left: 850px;
-            top: 300px;
-            width: 300px;
-            height: 200px;
-            width: 200px;
-            margin: 500;
-/*
-            transition-property: left;
-            transition-duration: 1s;
-*/
-            overflow: hidden;
+            left: 235px;
+            top: 240px;
+/*            margin: 500;*/
+/*            overflow: hidden;*/
             display: block;
-            
+            width:85px;
+            height:80px;
         }
         
         #bugButton {
@@ -113,9 +107,7 @@
  
             <img id="overlay" class="image" alt="Tree 8"  src="./assets/tree8.png" />
 
-            <div id="scores" class="scoreText"> 
-                <p class="scoreText">Scores:</p>
-            </div>
+            
 
         <img id="mainBackground" class="image" alt="UCSC, 2014 Susanne C. Dougherty" src="./assets/background.png"/>
         <div id="scores" class="info"> 
@@ -124,12 +116,12 @@
             <p id="scoreMisses" class="info" style="top:140px;">Misses: 0</p>
         </div>
         
-<!--        <div id="animate">-->
-            <div id="blackAndGreenRightBug" class="outer reset-bg" onclick="toggleBug()" id="bugButton">
-                <img id="rightTreeBug" class="plain" alt="black and green bug" src="./assets/bug4.png"/>
-            </div>
-<!--        </div> -->
-
+        <div id="blackAndGreenRightBug" class="outer reset-bg" onclick="toggleBug('rightTreeBug')" id="bugButton">
+            <img id="rightTreeBug" class="plain" alt="black and green bug" src="./assets/bug4.png"/>
+        </div>
+        <div id="spider" class="outer reset-bg" onclick="toggleBug('spider')" id="bugButton">
+            <img id="spider" class="plain" alt="a spider" src="./assets/bug2.png"/>
+        </div>
 
     </div>
     
@@ -138,9 +130,9 @@
 //            document.getElementById("blackAndGreenRightBug").style.visibility = "visible";
 //        }
         
-        function toggleBug() { 
+        function toggleBug(bug) { 
             // get the bug
-            var myBug = document.getElementById('rightTreeBug');
+            var myBug = document.getElementById(bug);
 
             // get the current value of the bug's display property 
             var displaySetting = myBug.style.display;
