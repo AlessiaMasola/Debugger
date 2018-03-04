@@ -35,23 +35,6 @@
             overflow: hidden;
         }
         
-        .rightTreeBug {
-            position: absolute;
-            left: 850px;
-            top: 300px;
-            width: 300px;
-            height: 200px;
-            width: 200px;
-            margin: 500;
-/*
-            transition-property: left;
-            transition-duration: 1s;
-*/
-            overflow: hidden;
-            display: block;
-            
-        }
-        
         #bugButton {
             display: none;
         }
@@ -60,6 +43,16 @@
             position: absolute; 
             left: 850px;
             top: 300px;
+            width: 250px;
+            height: 195px;
+            width: 200px;
+            margin: 500;
+        }
+
+        #dirtBug{
+            position: absolute; 
+            left: 320px;
+            top: 260px;
             width: 300px;
             height: 200px;
             width: 200px;
@@ -125,22 +118,24 @@
         </div>
         
 <!--        <div id="animate">-->
-            <div id="blackAndGreenRightBug" class="outer reset-bg" onclick="toggleBug()" id="bugButton">
+            <div id="blackAndGreenRightBug" class="outer reset-bg" onclick="toggleBug('rightTreeBug')" id="bugButton">
                 <img id="rightTreeBug" class="plain" alt="black and green bug" src="./assets/bug4.png"/>
             </div>
 <!--        </div> -->
 
+            <div id="dirtBug" class="outer reset-bg" onclick="toggleBug('dirtBug')" id="bugButton">
+                <img id="dirtBug" class="plain" alt="black dirt bug" style="width:80px; height:86px" src="./assets/bug3.png"/>
 
-    </div>
+            </div>
     
     <script>
 //        function startGame() {
 //            document.getElementById("blackAndGreenRightBug").style.visibility = "visible";
 //        }
         
-        function toggleBug() { 
+        function toggleBug(bug) { 
             // get the bug
-            var myBug = document.getElementById('rightTreeBug');
+            var myBug = document.getElementById(bug);
 
             // get the current value of the bug's display property 
             var displaySetting = myBug.style.display;
