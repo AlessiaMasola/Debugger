@@ -29,7 +29,6 @@
             opacity: 0.5;
             border-radius: 25px;
         }
-
         #overlay{
             position: absolute;
             overflow: hidden;
@@ -59,7 +58,6 @@
             width: 200px;
             margin: 500;
         }
-
         #dirtBug{
             position: absolute; 
             left: 320px;
@@ -82,11 +80,10 @@
         
         
         body, css {
-            cursor: url(./assets/crosshair.png), auto;	
+            cursor: url(./assets/crosshair.png), auto;  
         }
         
         
-
     
     </style>
 </head>
@@ -126,19 +123,16 @@
             <p id="scoreMisses" class="info" style="top:140px;">Misses: 0</p>
         </div>
         
+        <div id="blackAndGreenRightBug" class="outer reset-bg" onclick="toggleBug('rightTreeBug')" id="bugButton">
+            <img id="rightTreeBug" class="plain" alt="black and green bug" src="./assets/bug4.png"/>
+        </div>
         <div id="spider" class="outer reset-bg" onclick="toggleBug('spider')" id="bugButton">
             <img id="spider" class="plain" alt="a spider" src="./assets/bug2.png"/>
         </div>
-<!--        <div id="animate">-->
-            <div id="blackAndGreenRightBug" class="outer reset-bg" onclick="toggleBug('rightTreeBug')" id="bugButton">
-                <img id="rightTreeBug" class="plain" alt="black and green bug" src="./assets/bug4.png"/>
-            </div>
-<!--        </div> -->
 
-            <div id="dirtBug" class="outer reset-bg" onclick="toggleBug('dirtBug')" id="bugButton">
-                <img id="dirtBug" class="plain" alt="black dirt bug" style="width:80px; height:86px" src="./assets/bug3.png"/>
-
-            </div>
+        <div id="dirtBug" class="outer reset-bg" onclick="toggleBug('dirtBug')" id="bugButton">
+            <img id="dirtBug" class="plain" alt="black dirt bug" style="width:80px; height:86px" src="./assets/bug3.png"/>
+        </div>
     
     <script>
 //        function startGame() {
@@ -148,13 +142,10 @@
         function toggleBug(bug) { 
             // get the bug
             var myBug = document.getElementById(bug);
-
             // get the current value of the bug's display property 
             var displaySetting = myBug.style.display;
-
             // also get the bug button, so we can change what it says 
             var bugButton = document.getElementById('bugButton');
-
             // now toggle the clock and the button text, depending on current state
             if (displaySetting == 'block') { 
               // bug is visible. hide it
