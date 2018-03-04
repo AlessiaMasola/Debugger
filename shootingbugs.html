@@ -22,13 +22,26 @@
             padding: 10px;
             border: 2px solid gray;
             margin: 500;
-            background-color: aqua;
-            opacity: 0.5;
+            background-color: turquoise;
+            opacity: 0.85;
+        }
+
+        #blackAndGreenLeftBug{
+            position: absolute;
+            left: 100px;
+            top: 300px;
+            width: 300px;
+            height: 200px;
+            width: 300px;
+            margin: 500;
+            transition-property: left;
+            transition-duration: 1s;
+            overflow: hidden;
         }
         
         #blackAndGreenRightBug {
             position: absolute;
-            left: 850px;
+            left: 775px;
             top: 300px;
             width: 300px;
             height: 200px;
@@ -37,8 +50,21 @@
             transition-property: left;
             transition-duration: 1s;
             overflow: hidden;
-            
         }
+
+        #overlay{
+            position: absolute;
+            overflow: hidden;
+        }
+
+
+        /*.image {
+            position: absolute;
+            margin-left: 0px;
+            margin-top: 0px;
+            opacity: 1;
+            visibility: hidden;
+        }*/
         
         .scoreText {
             font-family: Verdana, Geneva, monospace;
@@ -65,6 +91,28 @@
           transition-delay: 1s;
           margin-left: 0px;
         }
+
+        .outer {
+            position: absolute;
+            overflow: hidden;
+            visibility: visible;
+        }  
+
+        .reset-bg {
+            background: none;
+            opacity: 1;
+        }
+
+        /* Used for testing (to see DIVs) */
+        .show-bg {
+            background-color: red;
+            opacity: 0.60;
+            visibility: visible;
+        }
+
+
+
+
 /*
         .image {
             
@@ -76,17 +124,49 @@
     
 <body>
     <div id = "main">
-        <img id="mainBackground" class="image" alt="UCSC" src="./images/background.png" />
-        <div id="scores" class="scoreText"> 
-            <p class="scoreText">Scores:</p>
-        </div>
+        
+        
+            <img id="overlay" class="image" alt="Dirt"  src="./assets/dirt.png" />
+
+            <img id="overlay" class="image" alt="Fence 1"  src="./assets/fence1.png" />
+
+            <img id="overlay" class="image" alt="Library"  src="./assets/library.png" />
+
+            <img id="overlay" class="image" alt="SideWalk"  src="./assets/sidewalk.png" />
+
+            <img id="overlay" class="image" alt="Tree 1"  src="./assets/tree1.png" />
+
+            <img id="overlay" class="image" alt="Tree 2"  src="./assets/tree2.png" />
+ 
+            <img id="overlay" class="image"  alt="Tree 3"  src="./assets/tree3.png" />
+
+            <img id="overlay" class="image" alt="Tree 4"  src="./assets/tree4.png" />
+
+            <img id="overlay" class="image" alt="Tree 5"  src="./assets/tree5.png" />
+
+            <img id="overlay" class="image" alt="Tree 6"  src="./assets/tree6.png" />
+ 
+            <img id="overlay" class="image" alt="Tree 7"  src="./assets/tree7.png" />
+ 
+            <img id="overlay" class="image" alt="Tree 8"  src="./assets/tree8.png" />
+
+            <div id="scores" class="scoreText"> 
+                <p class="scoreText">Scores:</p>
+            </div>
+
+            <img id="mainBackground" class="image" alt="2014 Susanne C. Dougherty" src="./images/background.png" />
+    </div>
         
         <div id="blackAndGreenRightBug" class="outer reset-bg">
 <!--        <div id="blueVanPopup" class="inner dissolver">-->
-        <img id="rightTreeBug" class="plain" alt="2014 Susanne C. Dougherty" src="./images/bug4.png" />
+        <img id="rightTreeBug" class="plain" alt="Right Bug" style="width:175px;height:150px" src="./images/bug4.png" />
         <p>  </p>
-<!--        </div>-->
         </div>
+        <div id= "blackAndGreenLeftBug" class="outer reset-bg">
+            <img id="leftTreeBug" class="plain" alt="Left Bug" style="width:150px;height:150px" src="./images/bug1.gif"/>
+            <p> </p>
+        </div>
+
     </div>
     <script>
         var settings = {
