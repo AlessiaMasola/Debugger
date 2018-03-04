@@ -1,16 +1,17 @@
+
 <!DOCTYPE html>
 <html>
     
-<head>
-    <title>Let's debug with the DEBUGGER!</title>
-    <style>
-        
-        #main {
-            background-image: url('./assets/background.png');
-            background-repeat: no-repeat;
-            position: absolute;
-            overflow: hidden;
-        }
+    <head>
+        <title>Let's debug with the DEBUGGER!</title>
+        <style>
+            
+            #main {
+                background-image: url('./assets/background.png');
+                background-repeat: no-repeat;
+                position: absolute;
+                overflow: hidden;
+            }
         
         #scores {
             position: absolute;
@@ -25,7 +26,7 @@
             background-color: turquoise;
             opacity: 0.85;
         }
-
+        
         #blackAndGreenLeftBug{
             position: absolute;
             left: 100px;
@@ -53,20 +54,20 @@
             display: block;
             
         }
-
+        
         #overlay{
             position: absolute;
             overflow: hidden;
         }
-
-
+        
+        
         /*.image {
-            position: absolute;
-            margin-left: 0px;
-            margin-top: 0px;
-            opacity: 1;
-            visibility: hidden;
-        }*/
+         position: absolute;
+         margin-left: 0px;
+         margin-top: 0px;
+         opacity: 1;
+         visibility: hidden;
+         }*/
         
         .scoreText {
             font-family: Verdana, Geneva, monospace;
@@ -80,132 +81,132 @@
         
         /* Alien move transition classes */
         .move {
-          transition: margin-top 4s;
-          margin-top: 250px;
+            transition: margin-top 4s;
+            margin-top: 250px;
         }
         .slide-LeftRight {
-          transition: margin-left 4s;
-          transition-delay: 1s;
-          margin-left: 0px;
+            transition: margin-left 4s;
+            transition-delay: 1s;
+            margin-left: 0px;
         }
         .slideUpDown {
-          transition: margin-top 4s;
-          transition-delay: 1s;
-          margin-left: 0px;
+            transition: margin-top 4s;
+            transition-delay: 1s;
+            margin-left: 0px;
         }
-
+        
         .outer {
             position: absolute;
             overflow: hidden;
             visibility: visible;
-        }  
-
+        }
+        
         .reset-bg {
             background: none;
             opacity: 1;
         }
-
+        
         /* Used for testing (to see DIVs) */
         .show-bg {
             background-color: red;
             opacity: 0.60;
             visibility: visible;
         }
-
-
-
-
-/*
-        .image {
+        
+        
+        
+        
+        /*
+         .image {
+         
+         
+         body, css {
+         cursor: url(./assets/crosshair.png), auto;
+         }
+         
+         
+         
+         </style>
+    </head>
+    
+    <body>
+        <div id = "main">
             
-        
-        body, css {
-            cursor: url(./assets/crosshair.png), auto;	
-        }
-        
-
-    
-    </style>
-</head>
-    
-<body>
-    <div id = "main">
-        
             <img id="overlay" class="image" alt="Dirt"  src="./assets/dirt.png" />
-
+            
             <img id="overlay" class="image" alt="Fence 1"  src="./assets/fence1.png" />
-
+            
             <img id="overlay" class="image" alt="Library"  src="./assets/library.png" />
-
+            
             <img id="overlay" class="image" alt="SideWalk"  src="./assets/sidewalk.png" />
-
+            
             <img id="overlay" class="image" alt="Tree 1"  src="./assets/tree1.png" />
-
+            
             <img id="overlay" class="image" alt="Tree 2"  src="./assets/tree2.png" />
- 
+            
             <img id="overlay" class="image"  alt="Tree 3"  src="./assets/tree3.png" />
-
+            
             <img id="overlay" class="image" alt="Tree 4"  src="./assets/tree4.png" />
-
+            
             <img id="overlay" class="image" alt="Tree 5"  src="./assets/tree5.png" />
-
+            
             <img id="overlay" class="image" alt="Tree 6"  src="./assets/tree6.png" />
- 
+            
             <img id="overlay" class="image" alt="Tree 7"  src="./assets/tree7.png" />
- 
+            
             <img id="overlay" class="image" alt="Tree 8"  src="./assets/tree8.png" />
-
-            <div id="scores" class="scoreText"> 
+            
+            <div id="scores" class="scoreText">
                 <p class="scoreText">Scores:</p>
             </div>
-
+            
             <img id="mainBackground" class="image" alt="2014 Susanne C. Dougherty" src="./images/background.png" />
-    </div>
+        </div>
         
         <div id="blackAndGreenRightBug" class="outer reset-bg">
-<!--        <div id="blueVanPopup" class="inner dissolver">-->
-        <img id="rightTreeBug" class="plain" alt="Right Bug" style="width:175px;height:150px" src="./images/bug4.png" />
-        <p>  </p>
+            <!--        <div id="blueVanPopup" class="inner dissolver">-->
+            <img id="rightTreeBug" class="plain" alt="Right Bug" style="width:175px;height:150px" src="./images/bug4.png" />
+            <p>  </p>
         </div>
         <div id= "blackAndGreenLeftBug" class="outer reset-bg">
             <img id="leftTreeBug" class="plain" alt="Left Bug" style="width:150px;height:150px" src="./images/bug1.gif"/>
             <p> </p>
         </div>
-
+        
         <button onclick="toggleBug()" id="bugButton"><div id="blackAndGreenRightBug" class="outer reset-bg">
             <img id="rightTreeBug" class="plain" alt="black and green bug" src="./assets/bug4.png"/>
-            </div> </button>
-
-    </div>
-    
-    <script>
-//        function startGame() {
-//            document.getElementById("blackAndGreenRightBug").style.visibility = "visible";
-//        }
+        </div> </button>
         
-        function toggleBug() { 
-            // get the bug
-            var myBug = document.getElementById('rightTreeBug');
-
-            // get the current value of the bug's display property 
-            var displaySetting = myBug.style.display;
-
-            // also get the bug button, so we can change what it says 
-            var bugButton = document.getElementById('bugButton');
-
-            // now toggle the clock and the button text, depending on current state
-            if (displaySetting == 'block') { 
-              // bug is visible. hide it
-              myBug.style.display = 'none';
-            }
-            else { 
-              // bug is hidden. show it 
-              myBug.style.display = 'block';
-              // change button text
-            }
-        }  
-    </script>
-</body>
-
-
+        </div>
+        
+        <script>
+            //        function startGame() {
+            //            document.getElementById("blackAndGreenRightBug").style.visibility = "visible";
+            //        }
+            
+            function toggleBug() {
+                // get the bug
+                var myBug = document.getElementById('rightTreeBug');
+                
+                // get the current value of the bug's display property
+                var displaySetting = myBug.style.display;
+                
+                // also get the bug button, so we can change what it says
+                var bugButton = document.getElementById('bugButton');
+                
+                // now toggle the clock and the button text, depending on current state
+                if (displaySetting == 'block') { 
+                    // bug is visible. hide it
+                    myBug.style.display = 'none';
+                }
+                else { 
+                    // bug is hidden. show it 
+                    myBug.style.display = 'block';
+                    // change button text
+                }
+            }  
+        </script>
+    </body>
+    
+    
 </html>
