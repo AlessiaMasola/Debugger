@@ -29,6 +29,21 @@
             opacity: 0.5;
             border-radius: 25px;
         }
+
+        #exceptions{
+            position: absolute;
+            left: 60px;
+            top: 550px;
+            height: 30px;
+            width: 180px;
+            padding: 20px;
+            border: 2px solid gray;
+            margin: 100;
+            background-color: white;
+            opacity: 0.8;
+            border-radius: 25px;
+
+        }
         #overlay{
             position: absolute;
             overflow: hidden;
@@ -90,10 +105,21 @@
 /*            position: absolute;*/
             overflow: hidden;
         }
+
+        .exceptionInfo {
+            position: absolute;
+            font-family: Verdana, Geneva, monospace;
+            font-weight: 550;
+            font-size: 15px;
+            top: px;
+            color: black;
+/*            position: absolute;*/
+            overflow: hidden;
+        }
         
         
         body, css {
-            cursor: url(./assets/crosshair.png), auto;  
+            cursor: url(./assets/crosshair.png) 25 20, auto;  
         }
         
         
@@ -135,6 +161,10 @@
             <p id="scoreHits" class="info" style="top:90px;">Hits: 0</p>
             <p id="scoreMisses" class="info" style="top:140px;">Misses: 0</p>
         </div>
+
+        <div id="exceptions" class="exceptionInfo">
+            <p id="displayException" class ="exceptionInfo" style = "top:0px;"> </p>
+        </div>
         
         <div id="blackAndGreenRightBug" class="outer reset-bg" onclick="toggleBug('rightTreeBug')" id="bugButton">
             <img id="rightTreeBug" class="plain" alt="black and green bug" src="./assets/bug4.png"/>
@@ -167,6 +197,18 @@
             if (displaySetting == 'block') { 
               // bug is visible. hide it
               myBug.style.display = 'none';
+              if(bug == 'spider'){
+                document.getElementById("displayException").innerHTML = "Great! You just killed a NullPointerException!";
+              }
+              else if(bug == 'dirtBug'){
+                document.getElementById("displayException").innerHTML = "Great! You just killed a RuntimeException!";
+              }
+              else if(bug == 'leftTreeBug'){
+                document.getElementById("displayException").innerHTML = "Great! You just killed a Syntax Error!";
+              }
+              else if(bug == 'rightTreeBug'){
+                document.getElementById("displayException").innerHTML = "Great! You just killed a NumberFormatException!";
+              }
             }
             else { 
               // bug is hidden. show it 
